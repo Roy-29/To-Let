@@ -1,0 +1,131 @@
+export type ErrorCode =
+  | "UNAUTHORIZED"
+  | "FORBIDDEN"
+  | "NOT_FOUND"
+  | "VALIDATION_ERROR"
+  | "CONFLICT"
+  | "ALREADY_EXISTS"
+  | "ACCOUNT_SUSPENDED"
+  | "INVALID_STATUS_TRANSITION"
+  | "PROPERTY_NOT_AVAILABLE"
+  | "DUPLICATE_FAVORITE"
+  | "INVALID_PROPERTY_DATA"
+  | "INVALID_CREDENTIALS"
+  | "USER_ALREADY_EXISTS"
+  | "APPLICATION_NOT_FOUND"
+  | "APPLICATION_NOT_APPROVED"
+  | "APPLICATION_ALREADY_EXISTS"
+  | "TENANCY_ALREADY_EXISTS"
+  | "TENANCY_NOT_ACTIVE"
+  | "AGREEMENT_NOT_FOUND"
+  | "INVALID_AGREEMENT_STATE"
+  | "RENT_RECORD_ALREADY_EXISTS"
+  | "RENT_RECORD_NOT_FOUND"
+  | "INVALID_PAYMENT"
+  | "PAYMENT_EXCEEDS_BALANCE"
+  | "INVALID_RENT_STATE"
+  | "MAINTENANCE_NOT_FOUND"
+  | "MAINTENANCE_NOT_ACCESSIBLE"
+  | "ACTIVE_TENANCY_REQUIRED"
+  | "PROPERTY_ACCESS_DENIED"
+  | "TENANT_ACCESS_DENIED"
+  | "INVALID_MAINTENANCE_TRANSITION"
+  | "INVALID_DATE_RANGE"
+  | "ADMIN_ACCESS_REQUIRED"
+  | "USER_NOT_FOUND"
+  | "USER_ALREADY_SUSPENDED"
+  | "USER_ALREADY_ACTIVE"
+  | "CANNOT_SUSPEND_SELF"
+  | "PROPERTY_NOT_FOUND"
+  | "PROPERTY_NOT_REVIEWABLE"
+  | "INVALID_MODERATION_TRANSITION"
+  | "REPORT_NOT_FOUND"
+  | "REPORT_ALREADY_RESOLVED"
+  | "INVALID_REPORT_TRANSITION"
+  | "INTERNAL_ERROR"
+  | "INTERNAL_SERVER_ERROR";
+
+const HTTP_STATUS: Record<ErrorCode, number> = {
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  VALIDATION_ERROR: 400,
+  CONFLICT: 409,
+  ALREADY_EXISTS: 409,
+  ACCOUNT_SUSPENDED: 403,
+  INVALID_STATUS_TRANSITION: 400,
+  PROPERTY_NOT_AVAILABLE: 400,
+  DUPLICATE_FAVORITE: 409,
+  INVALID_PROPERTY_DATA: 400,
+  INVALID_CREDENTIALS: 401,
+  USER_ALREADY_EXISTS: 409,
+  APPLICATION_NOT_FOUND: 404,
+  APPLICATION_NOT_APPROVED: 400,
+  APPLICATION_ALREADY_EXISTS: 409,
+  TENANCY_ALREADY_EXISTS: 409,
+  TENANCY_NOT_ACTIVE: 400,
+  AGREEMENT_NOT_FOUND: 404,
+  INVALID_AGREEMENT_STATE: 400,
+  RENT_RECORD_ALREADY_EXISTS: 409,
+  RENT_RECORD_NOT_FOUND: 404,
+  INVALID_PAYMENT: 400,
+  PAYMENT_EXCEEDS_BALANCE: 400,
+  INVALID_RENT_STATE: 400,
+  MAINTENANCE_NOT_FOUND: 404,
+  MAINTENANCE_NOT_ACCESSIBLE: 403,
+  ACTIVE_TENANCY_REQUIRED: 403,
+  PROPERTY_ACCESS_DENIED: 403,
+  TENANT_ACCESS_DENIED: 403,
+  INVALID_MAINTENANCE_TRANSITION: 400,
+  INVALID_DATE_RANGE: 400,
+  ADMIN_ACCESS_REQUIRED: 403,
+  USER_NOT_FOUND: 404,
+  USER_ALREADY_SUSPENDED: 400,
+  USER_ALREADY_ACTIVE: 400,
+  CANNOT_SUSPEND_SELF: 403,
+  PROPERTY_NOT_FOUND: 404,
+  PROPERTY_NOT_REVIEWABLE: 400,
+  INVALID_MODERATION_TRANSITION: 400,
+  REPORT_NOT_FOUND: 404,
+  REPORT_ALREADY_RESOLVED: 400,
+  INVALID_REPORT_TRANSITION: 400,
+  INTERNAL_ERROR: 500,
+  INTERNAL_SERVER_ERROR: 500,
+};
+
+export class AppError extends Error {
+  public readonly code: ErrorCode;
+  public readonly statusCode: number;
+
+  constructor(code: ErrorCode, message: string) {
+    super(message);
+    this.code = code;
+    this.statusCode = HTTP_STATUS[code];
+    this.name = "AppError";
+  }
+}
+
+export function errorResponse(error: unknown) {
+  if (error instanceof AppError) {
+    return {
+      success: false as const,
+      error: { code: error.code, message: error.message },
+      statusCode: error.statusCode,
+    };
+  }
+
+  console.error("Unhandled error:", error);
+  return {
+    success: false as const,
+    error: { code: "INTERNAL_ERROR" as const, message: "An unexpected error occurred." },
+    statusCode: 500,
+  };
+}
+
+export function successResponse<T>(data: T) {
+  return { success: true as const, data };
+}
+
+export type ActionResult<T = void> =
+  | { success: true; data: T }
+  | { success: false; error: { code: string; message: string } };

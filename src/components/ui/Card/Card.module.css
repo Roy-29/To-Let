@@ -1,0 +1,17 @@
+.card {
+  background-color: var(--color-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* Padding */
+.p-none { padding: 0; }
+.p-sm { padding: 0.75rem; }
+.p-md { padding: 1.25rem; }
+.p-lg { padding: 2rem; }
+
+/* Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
