@@ -640,6 +640,7 @@ export type MaintenanceRequestCreateOrConnectWithoutTenantInput = {
 
 export type MaintenanceRequestCreateManyTenantInputEnvelope = {
   data: Prisma.MaintenanceRequestCreateManyTenantInput | Prisma.MaintenanceRequestCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type MaintenanceRequestUpsertWithWhereUniqueWithoutTenantInput = {
@@ -710,6 +711,7 @@ export type MaintenanceRequestCreateOrConnectWithoutPropertyInput = {
 
 export type MaintenanceRequestCreateManyPropertyInputEnvelope = {
   data: Prisma.MaintenanceRequestCreateManyPropertyInput | Prisma.MaintenanceRequestCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type MaintenanceRequestUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -763,6 +765,7 @@ export type MaintenanceRequestCreateOrConnectWithoutTenancyInput = {
 
 export type MaintenanceRequestCreateManyTenancyInputEnvelope = {
   data: Prisma.MaintenanceRequestCreateManyTenancyInput | Prisma.MaintenanceRequestCreateManyTenancyInput[]
+  skipDuplicates?: boolean
 }
 
 export type MaintenanceRequestUpsertWithWhereUniqueWithoutTenancyInput = {
@@ -1824,6 +1827,7 @@ export type MaintenanceRequestCreateManyArgs<ExtArgs extends runtime.Types.Exten
    * The data used to create many MaintenanceRequests.
    */
   data: Prisma.MaintenanceRequestCreateManyInput | Prisma.MaintenanceRequestCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1842,6 +1846,7 @@ export type MaintenanceRequestCreateManyAndReturnArgs<ExtArgs extends runtime.Ty
    * The data used to create many MaintenanceRequests.
    */
   data: Prisma.MaintenanceRequestCreateManyInput | Prisma.MaintenanceRequestCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

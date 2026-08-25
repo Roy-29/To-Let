@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
 import { Input } from '@/components/ui/Input/Input';
 import { Card } from '@/components/ui/Card/Card';
+import { HeroSearchForm } from '@/components/ui/HeroSearchForm/HeroSearchForm';
 import styles from './page.module.css';
 import { searchProperties } from '@/services/propertySearchService';
 
@@ -28,25 +29,11 @@ export default async function HomePage() {
           </p>
           
           <Card className={styles.searchCard} padding="lg" shadow="md">
-            <form className={styles.searchForm} action="/properties">
-              <div className={styles.searchInputGroup}>
-                <Input 
-                  name="q" 
-                  placeholder="Enter area, neighborhood, or city" 
-                  fullWidth 
-                />
-              </div>
-              <div className={styles.searchControls}>
-                <select name="propertyType" className={styles.select}>
-                  <option value="">Any Property Type</option>
-                  <option value="APARTMENT">Apartment</option>
-                  <option value="HOUSE">House</option>
-                  <option value="ROOM">Room</option>
-                  <option value="COMMERCIAL">Commercial</option>
-                </select>
-                <Button type="submit" size="lg">Search</Button>
-              </div>
-            </form>
+            <HeroSearchForm 
+              className={styles.searchForm}
+              inputGroupClassName={styles.searchInputGroup}
+              controlsClassName={styles.searchControls}
+            />
           </Card>
         </div>
       </section>

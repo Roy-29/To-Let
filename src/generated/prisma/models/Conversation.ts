@@ -527,6 +527,7 @@ export type ConversationCreateOrConnectWithoutLandlordInput = {
 
 export type ConversationCreateManyLandlordInputEnvelope = {
   data: Prisma.ConversationCreateManyLandlordInput | Prisma.ConversationCreateManyLandlordInput[]
+  skipDuplicates?: boolean
 }
 
 export type ConversationCreateWithoutTenantInput = {
@@ -554,6 +555,7 @@ export type ConversationCreateOrConnectWithoutTenantInput = {
 
 export type ConversationCreateManyTenantInputEnvelope = {
   data: Prisma.ConversationCreateManyTenantInput | Prisma.ConversationCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type ConversationUpsertWithWhereUniqueWithoutLandlordInput = {
@@ -625,6 +627,7 @@ export type ConversationCreateOrConnectWithoutPropertyInput = {
 
 export type ConversationCreateManyPropertyInputEnvelope = {
   data: Prisma.ConversationCreateManyPropertyInput | Prisma.ConversationCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type ConversationUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -1576,6 +1579,7 @@ export type ConversationCreateManyArgs<ExtArgs extends runtime.Types.Extensions.
    * The data used to create many Conversations.
    */
   data: Prisma.ConversationCreateManyInput | Prisma.ConversationCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1594,6 +1598,7 @@ export type ConversationCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ex
    * The data used to create many Conversations.
    */
   data: Prisma.ConversationCreateManyInput | Prisma.ConversationCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

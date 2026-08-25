@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { inter } from "./fonts";
+import { aleo } from "./fonts";
 import "./globals.css";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Thikana - Find your next home",
@@ -9,8 +10,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+    <html lang="en" className={`${aleo.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

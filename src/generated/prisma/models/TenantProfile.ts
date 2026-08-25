@@ -1484,6 +1484,7 @@ export type TenantProfileCreateManyArgs<ExtArgs extends runtime.Types.Extensions
    * The data used to create many TenantProfiles.
    */
   data: Prisma.TenantProfileCreateManyInput | Prisma.TenantProfileCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1502,6 +1503,7 @@ export type TenantProfileCreateManyAndReturnArgs<ExtArgs extends runtime.Types.E
    * The data used to create many TenantProfiles.
    */
   data: Prisma.TenantProfileCreateManyInput | Prisma.TenantProfileCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -588,6 +588,7 @@ export type VisitRequestCreateOrConnectWithoutLandlordInput = {
 
 export type VisitRequestCreateManyLandlordInputEnvelope = {
   data: Prisma.VisitRequestCreateManyLandlordInput | Prisma.VisitRequestCreateManyLandlordInput[]
+  skipDuplicates?: boolean
 }
 
 export type VisitRequestCreateWithoutTenantInput = {
@@ -621,6 +622,7 @@ export type VisitRequestCreateOrConnectWithoutTenantInput = {
 
 export type VisitRequestCreateManyTenantInputEnvelope = {
   data: Prisma.VisitRequestCreateManyTenantInput | Prisma.VisitRequestCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type VisitRequestUpsertWithWhereUniqueWithoutLandlordInput = {
@@ -702,6 +704,7 @@ export type VisitRequestCreateOrConnectWithoutPropertyInput = {
 
 export type VisitRequestCreateManyPropertyInputEnvelope = {
   data: Prisma.VisitRequestCreateManyPropertyInput | Prisma.VisitRequestCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type VisitRequestUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -1632,6 +1635,7 @@ export type VisitRequestCreateManyArgs<ExtArgs extends runtime.Types.Extensions.
    * The data used to create many VisitRequests.
    */
   data: Prisma.VisitRequestCreateManyInput | Prisma.VisitRequestCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1650,6 +1654,7 @@ export type VisitRequestCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ex
    * The data used to create many VisitRequests.
    */
   data: Prisma.VisitRequestCreateManyInput | Prisma.VisitRequestCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google';
+import { Aleo } from 'next/font/google';
 
-export const inter = Inter({
+export const aleo = Aleo({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-aleo',
 });

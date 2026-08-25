@@ -540,6 +540,7 @@ export type InquiryCreateOrConnectWithoutLandlordInput = {
 
 export type InquiryCreateManyLandlordInputEnvelope = {
   data: Prisma.InquiryCreateManyLandlordInput | Prisma.InquiryCreateManyLandlordInput[]
+  skipDuplicates?: boolean
 }
 
 export type InquiryCreateWithoutTenantInput = {
@@ -569,6 +570,7 @@ export type InquiryCreateOrConnectWithoutTenantInput = {
 
 export type InquiryCreateManyTenantInputEnvelope = {
   data: Prisma.InquiryCreateManyTenantInput | Prisma.InquiryCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type InquiryUpsertWithWhereUniqueWithoutLandlordInput = {
@@ -644,6 +646,7 @@ export type InquiryCreateOrConnectWithoutPropertyInput = {
 
 export type InquiryCreateManyPropertyInputEnvelope = {
   data: Prisma.InquiryCreateManyPropertyInput | Prisma.InquiryCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type InquiryUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -1538,6 +1541,7 @@ export type InquiryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * The data used to create many Inquiries.
    */
   data: Prisma.InquiryCreateManyInput | Prisma.InquiryCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1556,6 +1560,7 @@ export type InquiryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many Inquiries.
    */
   data: Prisma.InquiryCreateManyInput | Prisma.InquiryCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -37,8 +37,9 @@ export default function LoginPage() {
       }
       
       // Redirect based on role
-      if (data.user.role === 'ADMIN') router.push('/dashboard'); // Admin dashboard
-      else if (data.user.role === 'LANDLORD') router.push('/dashboard');
+      const userRole = data.data?.role;
+      if (userRole === 'ADMIN') router.push('/dashboard'); // Admin dashboard
+      else if (userRole === 'LANDLORD') router.push('/dashboard');
       else router.push('/dashboard');
       
       router.refresh();
@@ -53,7 +54,7 @@ export default function LoginPage() {
     <div className={styles.container}>
       <Card className={styles.authCard} padding="lg" shadow="md">
         <div className={styles.header}>
-          <Link href="/" className={styles.logo}>Thikana</Link>
+          <Link href="/homepage" className={styles.logo}>Thikana</Link>
           <h1 className={styles.title}>Welcome back</h1>
           <p className={styles.subtitle}>Enter your details to access your account.</p>
         </div>

@@ -52,7 +52,7 @@ export default function DashboardNav({ userRole }: { userRole: string }) {
   return (
     <nav className={styles.nav}>
       <div className={styles.logoContainer}>
-        <Link href="/" className={styles.logo}>Thikana</Link>
+        <Link href="/homepage" className={styles.logo}>Thikana</Link>
       </div>
       <ul className={styles.navList}>
         {navItems.map((item) => {

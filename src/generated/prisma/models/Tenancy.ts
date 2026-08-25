@@ -759,6 +759,7 @@ export type TenancyCreateOrConnectWithoutLandlordInput = {
 
 export type TenancyCreateManyLandlordInputEnvelope = {
   data: Prisma.TenancyCreateManyLandlordInput | Prisma.TenancyCreateManyLandlordInput[]
+  skipDuplicates?: boolean
 }
 
 export type TenancyCreateWithoutTenantInput = {
@@ -802,6 +803,7 @@ export type TenancyCreateOrConnectWithoutTenantInput = {
 
 export type TenancyCreateManyTenantInputEnvelope = {
   data: Prisma.TenancyCreateManyTenantInput | Prisma.TenancyCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type TenancyUpsertWithWhereUniqueWithoutLandlordInput = {
@@ -894,6 +896,7 @@ export type TenancyCreateOrConnectWithoutPropertyInput = {
 
 export type TenancyCreateManyPropertyInputEnvelope = {
   data: Prisma.TenancyCreateManyPropertyInput | Prisma.TenancyCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type TenancyUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -2267,6 +2270,7 @@ export type TenancyCreateManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * The data used to create many Tenancies.
    */
   data: Prisma.TenancyCreateManyInput | Prisma.TenancyCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -2285,6 +2289,7 @@ export type TenancyCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    * The data used to create many Tenancies.
    */
   data: Prisma.TenancyCreateManyInput | Prisma.TenancyCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -1270,6 +1270,7 @@ export type RentalAgreementCreateManyArgs<ExtArgs extends runtime.Types.Extensio
    * The data used to create many RentalAgreements.
    */
   data: Prisma.RentalAgreementCreateManyInput | Prisma.RentalAgreementCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1288,6 +1289,7 @@ export type RentalAgreementCreateManyAndReturnArgs<ExtArgs extends runtime.Types
    * The data used to create many RentalAgreements.
    */
   data: Prisma.RentalAgreementCreateManyInput | Prisma.RentalAgreementCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -20,14 +20,9 @@ export const signupSchema = z
       .regex(/[a-z]/, "Password must contain a lowercase letter")
       .regex(/[A-Z]/, "Password must contain an uppercase letter")
       .regex(/[0-9]/, "Password must contain a number"),
-    confirmPassword: z.string(),
     role: z.enum(["TENANT", "LANDLORD"], {
       error: "Role must be TENANT or LANDLORD",
     }),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
   });
 
 export const loginSchema = z.object({

@@ -55,7 +55,7 @@ function SignupForm() {
     <div className={styles.container}>
       <Card className={styles.authCard} padding="lg" shadow="md">
         <div className={styles.header}>
-          <Link href="/" className={styles.logo}>Thikana</Link>
+          <Link href="/homepage" className={styles.logo}>Thikana</Link>
           <h1 className={styles.title}>Create an account</h1>
           <p className={styles.subtitle}>Join Thikana to find or list properties.</p>
         </div>

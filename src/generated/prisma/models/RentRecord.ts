@@ -634,6 +634,7 @@ export type RentRecordCreateOrConnectWithoutTenancyInput = {
 
 export type RentRecordCreateManyTenancyInputEnvelope = {
   data: Prisma.RentRecordCreateManyTenancyInput | Prisma.RentRecordCreateManyTenancyInput[]
+  skipDuplicates?: boolean
 }
 
 export type RentRecordUpsertWithWhereUniqueWithoutTenancyInput = {
@@ -1603,6 +1604,7 @@ export type RentRecordCreateManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * The data used to create many RentRecords.
    */
   data: Prisma.RentRecordCreateManyInput | Prisma.RentRecordCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1621,6 +1623,7 @@ export type RentRecordCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Exte
    * The data used to create many RentRecords.
    */
   data: Prisma.RentRecordCreateManyInput | Prisma.RentRecordCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

@@ -564,6 +564,7 @@ export type RentalApplicationCreateOrConnectWithoutLandlordInput = {
 
 export type RentalApplicationCreateManyLandlordInputEnvelope = {
   data: Prisma.RentalApplicationCreateManyLandlordInput | Prisma.RentalApplicationCreateManyLandlordInput[]
+  skipDuplicates?: boolean
 }
 
 export type RentalApplicationCreateWithoutTenantInput = {
@@ -595,6 +596,7 @@ export type RentalApplicationCreateOrConnectWithoutTenantInput = {
 
 export type RentalApplicationCreateManyTenantInputEnvelope = {
   data: Prisma.RentalApplicationCreateManyTenantInput | Prisma.RentalApplicationCreateManyTenantInput[]
+  skipDuplicates?: boolean
 }
 
 export type RentalApplicationUpsertWithWhereUniqueWithoutLandlordInput = {
@@ -673,6 +675,7 @@ export type RentalApplicationCreateOrConnectWithoutPropertyInput = {
 
 export type RentalApplicationCreateManyPropertyInputEnvelope = {
   data: Prisma.RentalApplicationCreateManyPropertyInput | Prisma.RentalApplicationCreateManyPropertyInput[]
+  skipDuplicates?: boolean
 }
 
 export type RentalApplicationUpsertWithWhereUniqueWithoutPropertyInput = {
@@ -1585,6 +1588,7 @@ export type RentalApplicationCreateManyArgs<ExtArgs extends runtime.Types.Extens
    * The data used to create many RentalApplications.
    */
   data: Prisma.RentalApplicationCreateManyInput | Prisma.RentalApplicationCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1603,6 +1607,7 @@ export type RentalApplicationCreateManyAndReturnArgs<ExtArgs extends runtime.Typ
    * The data used to create many RentalApplications.
    */
   data: Prisma.RentalApplicationCreateManyInput | Prisma.RentalApplicationCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

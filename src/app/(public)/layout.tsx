@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button/Button';
+import { ThemeToggle } from '@/components/ui/ThemeToggle/ThemeToggle';
 import styles from './PublicLayout.module.css';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -8,7 +9,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <div className={styles.layout}>
       <header className={styles.header}>
         <div className={styles.container}>
-          <Link href="/" className={styles.logo}>
+          <Link href="/homepage" className={styles.logo}>
             Thikana
           </Link>
           <nav className={styles.nav}>
@@ -16,6 +17,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
             <Link href="/about" className={styles.navLink}>About</Link>
           </nav>
           <div className={styles.actions}>
+            <ThemeToggle />
             <Link href="/login">
               <Button variant="ghost">Log in</Button>
             </Link>

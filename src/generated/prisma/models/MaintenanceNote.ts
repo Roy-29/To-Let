@@ -424,6 +424,7 @@ export type MaintenanceNoteCreateOrConnectWithoutAuthorInput = {
 
 export type MaintenanceNoteCreateManyAuthorInputEnvelope = {
   data: Prisma.MaintenanceNoteCreateManyAuthorInput | Prisma.MaintenanceNoteCreateManyAuthorInput[]
+  skipDuplicates?: boolean
 }
 
 export type MaintenanceNoteUpsertWithWhereUniqueWithoutAuthorInput = {
@@ -474,6 +475,7 @@ export type MaintenanceNoteCreateOrConnectWithoutMaintenanceRequestInput = {
 
 export type MaintenanceNoteCreateManyMaintenanceRequestInputEnvelope = {
   data: Prisma.MaintenanceNoteCreateManyMaintenanceRequestInput | Prisma.MaintenanceNoteCreateManyMaintenanceRequestInput[]
+  skipDuplicates?: boolean
 }
 
 export type MaintenanceNoteUpsertWithWhereUniqueWithoutMaintenanceRequestInput = {
@@ -1278,6 +1280,7 @@ export type MaintenanceNoteCreateManyArgs<ExtArgs extends runtime.Types.Extensio
    * The data used to create many MaintenanceNotes.
    */
   data: Prisma.MaintenanceNoteCreateManyInput | Prisma.MaintenanceNoteCreateManyInput[]
+  skipDuplicates?: boolean
 }
 
 /**
@@ -1296,6 +1299,7 @@ export type MaintenanceNoteCreateManyAndReturnArgs<ExtArgs extends runtime.Types
    * The data used to create many MaintenanceNotes.
    */
   data: Prisma.MaintenanceNoteCreateManyInput | Prisma.MaintenanceNoteCreateManyInput[]
+  skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */

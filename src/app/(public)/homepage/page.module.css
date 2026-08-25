@@ -7,12 +7,11 @@
 
 /* Hero */
 .hero {
-  background-color: var(--color-primary);
+  background-color: var(--color-hero-bg);
   color: white;
   padding: 6rem 1.5rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .heroContent {
@@ -42,6 +41,7 @@
 .searchCard {
   text-align: left;
   margin-top: 2rem;
+  overflow: visible;
 }
 
 .searchForm {
