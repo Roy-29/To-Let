@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";
 import { AppError } from "@/lib/errors";
@@ -5,6 +6,10 @@ import { createSession, destroySession, getCurrentUser } from "@/lib/session";
 import { signupSchema, loginSchema, type SignupInput, type LoginInput } from "@/lib/validations";
 
 const SALT_ROUNDS = 12;
+
+function generateUniqueCode() {
+  return "TK-" + crypto.randomBytes(3).toString("hex").toUpperCase();
+}
 
 export async function signup(input: SignupInput) {
   const parsed = signupSchema.parse(input);
@@ -19,6 +24,17 @@ export async function signup(input: SignupInput) {
 
   const passwordHash = await bcrypt.hash(parsed.password, SALT_ROUNDS);
 
+  let uniqueCode = generateUniqueCode();
+  let codeExists = true;
+  while (codeExists) {
+    const existingCode = await prisma.user.findUnique({ where: { uniqueCode } });
+    if (existingCode) {
+      uniqueCode = generateUniqueCode();
+    } else {
+      codeExists = false;
+    }
+  }
+
   const user = await prisma.$transaction(async (tx: any) => {
     const newUser = await tx.user.create({
       data: {
@@ -26,6 +42,7 @@ export async function signup(input: SignupInput) {
         email: parsed.email.toLowerCase(),
         passwordHash,
         role: parsed.role,
+        uniqueCode,
       },
     });
 
@@ -45,6 +62,7 @@ export async function signup(input: SignupInput) {
     name: user.name,
     email: user.email,
     role: user.role,
+    uniqueCode: user.uniqueCode,
   };
 }
 
@@ -80,6 +98,7 @@ export async function login(input: LoginInput) {
     name: user.name,
     email: user.email,
     role: user.role,
+    uniqueCode: user.uniqueCode,
   };
 }
 

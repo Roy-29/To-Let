@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/db";
 import { AppError } from "@/lib/errors";
+import { cache } from "react";
 
-export async function getUserById(id: string) {
+export const getUserById = cache(async (id: string) => {
   const user = await prisma.user.findUnique({
     where: { id },
     select: {
@@ -10,6 +11,7 @@ export async function getUserById(id: string) {
       email: true,
       role: true,
       status: true,
+      uniqueCode: true,
       createdAt: true,
     },
   });
@@ -19,9 +21,9 @@ export async function getUserById(id: string) {
   }
 
   return user;
-}
+});
 
-export async function getTenantProfile(userId: string) {
+export const getTenantProfile = cache(async (userId: string) => {
   const profile = await prisma.tenantProfile.findUnique({
     where: { userId },
   });
@@ -31,9 +33,9 @@ export async function getTenantProfile(userId: string) {
   }
 
   return profile;
-}
+});
 
-export async function getLandlordProfile(userId: string) {
+export const getLandlordProfile = cache(async (userId: string) => {
   const profile = await prisma.landlordProfile.findUnique({
     where: { userId },
   });
@@ -43,7 +45,7 @@ export async function getLandlordProfile(userId: string) {
   }
 
   return profile;
-}
+});
 
 export async function updateTenantProfile(
   userId: string,

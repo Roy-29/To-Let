@@ -37,10 +37,8 @@ export default function LoginPage() {
       }
       
       // Redirect based on role
-      const userRole = data.data?.role;
-      if (userRole === 'ADMIN') router.push('/dashboard'); // Admin dashboard
-      else if (userRole === 'LANDLORD') router.push('/dashboard');
-      else router.push('/dashboard');
+      const userRole = data.data?.role?.toLowerCase() || 'tenant';
+      router.push(`/${userRole}/dashboard`);
       
       router.refresh();
     } catch (err: any) {
@@ -85,6 +83,20 @@ export default function LoginPage() {
               />
               Show password
             </label>
+          </div>
+          
+          <div>
+            <span className={styles.radioGroupLabel}>I am a:</span>
+            <div className={styles.radioGroup}>
+              <label className={styles.radioLabel}>
+                <input type="radio" name="role" value="TENANT" defaultChecked />
+                Tenant
+              </label>
+              <label className={styles.radioLabel}>
+                <input type="radio" name="role" value="LANDLORD" />
+                Landlord
+              </label>
+            </div>
           </div>
           
           <Button type="submit" fullWidth size="lg" isLoading={isLoading}>

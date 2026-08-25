@@ -58,7 +58,7 @@ export const propertyCreateSchema = z.object({
   title: z.string().min(5, "Title must be at least 5 characters").max(200),
   description: z.string().max(5000).optional(),
   propertyType: z.enum(["APARTMENT", "HOUSE", "ROOM", "SUBLET", "HOSTEL", "OFFICE", "OTHER"]),
-  address: z.string().min(5).max(500),
+  address: z.string().min(5, "Address must be at least 5 characters").max(500),
   area: z.string().max(100).optional(),
   city: z.string().min(2).max(100),
   latitude: z.number().min(-90).max(90).optional(),

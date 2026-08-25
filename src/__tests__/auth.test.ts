@@ -13,7 +13,7 @@ describe("Signup Logic", () => {
     const passwordHash = await bcrypt.hash("Test1234", 4);
 
     const user = await prisma.user.create({
-      data: { name: "Tenant", email, passwordHash, role: "TENANT" },
+      data: { name: "Tenant", email, passwordHash, role: "TENANT", uniqueCode: "TK-TEST1" },
     });
     await prisma.tenantProfile.create({ data: { userId: user.id } });
 
@@ -45,6 +45,7 @@ describe("Signup Logic", () => {
           email: "dup@test.com",
           passwordHash: "hash",
           role: "TENANT",
+          uniqueCode: "TK-TEST2",
         },
       })
     ).rejects.toThrow();
@@ -336,6 +337,7 @@ describe("Unique Constraints", () => {
           email: "unique@test.com",
           passwordHash: "hash",
           role: "TENANT",
+          uniqueCode: "TK-TEST3",
         },
       })
     ).rejects.toThrow();

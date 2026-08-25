@@ -90,7 +90,7 @@ export default async function HomePage() {
           <p className={styles.ctaSubtitle}>
             List your property on Thikana to find verified tenants and manage rent collection effortlessly.
           </p>
-          <Link href="/signup?role=LANDLORD">
+          <Link href="/login">
             <Button variant="secondary" size="lg">List Your Property</Button>
           </Link>
         </div>

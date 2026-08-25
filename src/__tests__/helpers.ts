@@ -21,7 +21,7 @@ export async function createTestUser(
   const passwordHash = await bcrypt.hash(password, 4); // low rounds for speed
 
   const user = await prisma.user.create({
-    data: { name, email: email.toLowerCase(), passwordHash, role, status },
+    data: { name, email: email.toLowerCase(), passwordHash, role, status, uniqueCode: `TK-TEST${Date.now()}` },
   });
 
   if (role === "TENANT") {

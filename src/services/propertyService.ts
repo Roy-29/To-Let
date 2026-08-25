@@ -105,8 +105,8 @@ export async function publishProperty(propertyId: string) {
   const property = await prisma.property.findUnique({ where: { id: propertyId } });
   if (!property) throw new AppError("NOT_FOUND", "Property not found.");
 
-  if (property.status !== "PENDING_REVIEW" && property.status !== "DRAFT") {
-    throw new AppError("INVALID_STATUS_TRANSITION", "Property cannot be published from its current status.");
+  if (property.status === "PUBLISHED") {
+    throw new AppError("INVALID_STATUS_TRANSITION", "Property is already published.");
   }
 
   return prisma.property.update({

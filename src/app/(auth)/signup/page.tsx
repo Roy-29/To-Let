@@ -41,8 +41,9 @@ function SignupForm() {
         throw new Error(data.error?.message || data.message || 'Failed to sign up');
       }
       
-      // Navigate to dashboard
-      router.push('/dashboard');
+      // After successful signup, redirect to dashboard based on selected role
+      const userRole = (role as string).toLowerCase();
+      router.push(`/${userRole}/dashboard`);
       router.refresh();
     } catch (err: any) {
       setError(err.message);

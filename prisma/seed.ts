@@ -25,6 +25,7 @@ async function main() {
       passwordHash: adminPassword,
       role: 'ADMIN',
       status: 'ACTIVE',
+      uniqueCode: 'TK-ADMIN',
     },
   });
 
@@ -37,6 +38,7 @@ async function main() {
       passwordHash: userPassword,
       role: 'LANDLORD',
       status: 'ACTIVE',
+      uniqueCode: 'TK-LLORD1',
       landlordProfile: {
         create: {
           phone: '01711000001',
@@ -55,6 +57,7 @@ async function main() {
       passwordHash: userPassword,
       role: 'LANDLORD',
       status: 'ACTIVE',
+      uniqueCode: 'TK-LLORD2',
       landlordProfile: {
         create: {
           phone: '01711000002',
@@ -73,6 +76,7 @@ async function main() {
       passwordHash: userPassword,
       role: 'TENANT',
       status: 'ACTIVE',
+      uniqueCode: 'TK-TENAN1',
       tenantProfile: {
         create: {
           phone: '01711000003',
@@ -91,6 +95,7 @@ async function main() {
       passwordHash: userPassword,
       role: 'TENANT',
       status: 'ACTIVE',
+      uniqueCode: 'TK-TENAN2',
       tenantProfile: {
         create: {
           phone: '01711000004',
