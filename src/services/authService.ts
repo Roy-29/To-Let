@@ -90,6 +90,11 @@ export async function login(input: LoginInput) {
   if (!valid) {
     throw new AppError("UNAUTHORIZED", "Invalid email or password.");
   }
+  
+  // Check if the user is logging in with the correct role
+  if (parsed.role && user.role !== parsed.role) {
+    throw new AppError("UNAUTHORIZED", `Account not found for role: ${parsed.role.toLowerCase()}`);
+  }
 
   await createSession(user.id);
 

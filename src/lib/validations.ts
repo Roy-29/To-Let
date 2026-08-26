@@ -28,6 +28,7 @@ export const signupSchema = z
 export const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(1, "Password is required"),
+  role: z.enum(["TENANT", "LANDLORD"]).optional(), // Optional for backward compatibility, but UI will send it
 });
 
 // ─── Profile ───────────────────────────────────────────
