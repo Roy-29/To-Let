@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button/Button';
 import { Card } from '@/components/ui/Card/Card';
 import { Input } from '@/components/ui/Input/Input';
@@ -88,7 +89,14 @@ export default async function TenantProperties({ searchParams, role }: { searchP
                   <Card className={styles.propertyCard} padding="none">
                     <div className={styles.imagePlaceholder}>
                       {property.images?.[0] ? (
-                        <img src={property.images[0].url} alt={property.title} className={styles.image} />
+                        <Image 
+                          src={property.images[0].url} 
+                          alt={property.title} 
+                          className={styles.image} 
+                          width={400} 
+                          height={250} 
+                          style={{ objectFit: 'cover' }}
+                        />
                       ) : (
                         <div className={styles.noImage}>No Image</div>
                       )}

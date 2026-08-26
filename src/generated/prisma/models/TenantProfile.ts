@@ -604,10 +604,6 @@ export type TenantProfileUncheckedUpdateOneWithoutUserNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantProfileUpdateToOneWithWhereWithoutUserInput, Prisma.TenantProfileUpdateWithoutUserInput>, Prisma.TenantProfileUncheckedUpdateWithoutUserInput>
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type NullableFloatFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number

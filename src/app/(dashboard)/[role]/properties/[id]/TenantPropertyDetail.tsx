@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getPropertyById } from '@/services/propertyService';
 import { Button } from '@/components/ui/Button/Button';
@@ -20,7 +21,15 @@ export default async function TenantPropertyDetail({ propertyId, userId }: { pro
       <div className={styles.gallery}>
         <div className={styles.mainImage}>
           {property.images?.[0] ? (
-            <img src={property.images[0].url} alt={property.title} className={styles.image} />
+            <Image 
+              src={property.images[0].url} 
+              alt={property.title} 
+              className={styles.image} 
+              width={1200} 
+              height={600} 
+              style={{ objectFit: 'cover' }}
+              priority
+            />
           ) : (
             <div className={styles.noImage}>No Image Available</div>
           )}

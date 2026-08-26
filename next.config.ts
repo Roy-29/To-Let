@@ -31,5 +31,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**', // Allows all external domains for images during dev, adjust for prod
+      },
+    ],
+  },
+  reactCompiler: true,
 };
 export default nextConfig;

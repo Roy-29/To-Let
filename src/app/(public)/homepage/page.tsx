@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button/Button';
 import { Input } from '@/components/ui/Input/Input';
 import { Card } from '@/components/ui/Card/Card';
 import { HeroSearchForm } from '@/components/ui/HeroSearchForm/HeroSearchForm';
 import styles from './page.module.css';
 import { searchProperties } from '@/services/propertySearchService';
+
+export const dynamic = 'force-dynamic';
 
 // This is a server component
 export default async function HomePage() {
@@ -54,7 +57,14 @@ export default async function HomePage() {
                 <div className={styles.imagePlaceholder}>
                   {/* Real image would go here. We're using placeholder block for now as per MVP */}
                   {property.images?.[0] ? (
-                    <img src={property.images[0].url} alt={property.title} className={styles.image} />
+                    <Image 
+                      src={property.images[0].url} 
+                      alt={property.title} 
+                      className={styles.image} 
+                      width={400} 
+                      height={250} 
+                      style={{ objectFit: 'cover' }}
+                    />
                   ) : (
                     <div className={styles.noImage}>No Image</div>
                   )}

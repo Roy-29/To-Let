@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getCurrentUser } from '@/lib/session';
 import { redirect } from 'next/navigation';
 import { listMyFavorites } from '@/services/favoriteService';
@@ -31,7 +32,14 @@ export default async function SavedHomesPage({ searchParams }: { searchParams: {
             <Card key={fav.id} className={styles.propertyCard} padding="none">
               <div className={styles.imagePlaceholder}>
                 {fav.property.images?.[0] ? (
-                  <img src={fav.property.images[0].url} alt={fav.property.title} className={styles.image} />
+                  <Image 
+                    src={fav.property.images[0].url} 
+                    alt={fav.property.title} 
+                    className={styles.image} 
+                    width={400} 
+                    height={250} 
+                    style={{ objectFit: 'cover' }}
+                  />
                 ) : (
                   <div className={styles.noImage}>No Image</div>
                 )}

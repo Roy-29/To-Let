@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getPropertyById } from '@/services/propertyService';
 import { getCurrentUser } from '@/lib/session';
@@ -27,10 +28,13 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
-export default async function PropertyDetailsPage({ params }: { params: { id: string } }) {
+export const dynamic = 'force-dynamic';
+
+export default async function PropertyDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   let property;
   try {
-    property = await getPropertyById(params.id);
+    property = await getPropertyById(id);
   } catch (err) {
     notFound();
   }
@@ -45,7 +49,15 @@ export default async function PropertyDetailsPage({ params }: { params: { id: st
       <div className={styles.gallery}>
         <div className={styles.mainImage}>
           {property.images?.[0] ? (
-            <img src={property.images[0].url} alt={property.title} className={styles.image} />
+            <Image 
+              src={property.images[0].url} 
+              alt={property.title} 
+              className={styles.image} 
+              width={1200} 
+              height={600} 
+              style={{ objectFit: 'cover' }}
+              priority
+            />
           ) : (
             <div className={styles.noImage}>No Image Available</div>
           )}
