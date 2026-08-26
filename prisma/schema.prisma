@@ -12,7 +12,7 @@ model User {
   id           String   @id @default(cuid())
   name         String
   email        String   @unique
-  uniqueCode   String   @unique
+  uniqueCode   String?  @unique
   passwordHash String
   role         String   @default("TENANT") // TENANT | LANDLORD | ADMIN
   status       String   @default("ACTIVE") // ACTIVE | SUSPENDED | DELETED
